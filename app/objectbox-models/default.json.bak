@@ -1,0 +1,79 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:8347782503357278686",
+      "lastPropertyId": "3:8216695004631476510",
+      "name": "Rating",
+      "properties": [
+        {
+          "id": "1:5177905520696818009",
+          "name": "id"
+        },
+        {
+          "id": "2:395210194510360245",
+          "name": "source"
+        },
+        {
+          "id": "3:8216695004631476510",
+          "name": "value"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:3137658828660248725",
+      "lastPropertyId": "7:1569476426208839121",
+      "name": "Movie",
+      "properties": [
+        {
+          "id": "1:6519099517068903657",
+          "name": "id"
+        },
+        {
+          "id": "2:2772592586883159983",
+          "name": "title"
+        },
+        {
+          "id": "3:6551684843556299936",
+          "name": "posterPath"
+        },
+        {
+          "id": "4:1839541841028256472",
+          "name": "director"
+        },
+        {
+          "id": "5:4433776000398879722",
+          "name": "duration"
+        },
+        {
+          "id": "6:5808603432926524095",
+          "name": "year"
+        },
+        {
+          "id": "7:1569476426208839121",
+          "name": "imdbID"
+        }
+      ],
+      "relations": [
+        {
+          "id": "1:298752694536982055",
+          "name": "ratings"
+        }
+      ]
+    }
+  ],
+  "lastEntityId": "2:3137658828660248725",
+  "lastIndexId": "0:0",
+  "lastRelationId": "1:298752694536982055",
+  "lastSequenceId": "0:0",
+  "modelVersion": 4,
+  "modelVersionParserMinimum": 4,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}

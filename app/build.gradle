@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'io.objectbox'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+
+    defaultConfig {
+        applicationId "com.jfma75.mymovies"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+    implementation project(":data")
+    implementation project(":domain")
+    implementation project(":usecases")
+
+    implementation deps.kotlin.kotlin_jdk
+
+    implementation deps.ktx.core
+
+    implementation deps.android.appcompat
+    implementation deps.android.constraint_layout
+    implementation deps.android.design
+
+    implementation deps.lifecycle.lifecycle_extensions
+    implementation deps.lifecycle.lifecycle_viewmodel
+
+    // Coroutines
+    implementation deps.kotlin.coroutines_core
+    implementation deps.kotlin.coroutines_android
+
+    // Dagger2
+    implementation deps.dagger.runtime
+    kapt deps.dagger.compiler
+
+    // ObjectBox
+    implementation deps.objectbox.objectbox_kotlin
+    kapt deps.objectbox.objectbox_processor
+
+    // Glide
+    implementation deps.glide.runtime
+    kapt deps.glide.compiler
+
+    // Retrofit
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.coroutines_adapter
+    implementation deps.retrofit.gson
+
+    // okHttp
+    implementation deps.okHttp.okhttp_logging_interceptor
+
+    // jUnit
+    testImplementation deps.junit
+    androidTestImplementation deps.junit_ext
+
+    // Espresso
+    androidTestImplementation deps.espresso.core
+}

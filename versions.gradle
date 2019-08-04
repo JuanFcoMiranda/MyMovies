@@ -1,0 +1,206 @@
+/**
+ * Source largely taken from this OS repo:
+ * https://github.com/googlesamples/android-architecture-componebuild_versionsnts/blob/master/GithubBrowserSample/versions.gradle
+ *
+ *  Thank you to everyone involved in this awesome OS project!
+ *
+ * In this file, we basically build a tree of deps in a very DRY way.
+ **/
+
+//ext is a way to add extra data key/value pairs to a gradle domain object. Since it has no prefix,
+//it is short hand for project.ext in this case.
+//[:] is groovy syntax for creating a "Map" Object, which is a collection of key/value pairs
+
+//create a map of key/value pairs, called deps (deps)
+ext.deps = [:]
+
+//def means we're making a local variable. We'll use this map to build our deps key/value pairs below
+def versions = [:]
+versions.android_gradle_plugin = '3.5.0-rc02'
+versions.kotlin = "1.3.41"
+versions.coroutine_version = "1.2.1"
+
+versions.min_sdk = 22
+versions.target_sdk = 28
+versions.compile_sdk = 28
+versions.build_tools = "28.0.3"
+
+versions.lifecycle = "2.0.0-rc01"
+
+versions.appcompat = "1.1.0-rc01"
+versions.support = "1.1.0-beta01"
+versions.material = "1.0.0"
+versions.preferences = "1.1.0-rc01"
+
+versions.dagger = "2.24"
+
+versions.koin_version = "2.0.1"
+
+versions.lifecycle = "2.0.0"
+versions.lifecycle_extensions = "1.1.1"
+versions.databinding = "3.5.0-beta01"
+versions.ktx = "1.0.2"
+
+versions.constraint_layout = "2.0.0-beta1"
+versions.coordinator_layout = "1.1.0-beta01"
+versions.grid_layout = "1.0.0"
+versions.card_view = "1.0.0"
+
+versions.objectbox = "2.3.4"
+
+versions.jsoup = "1.11.3"
+
+versions.rxkotlin = "2.2.0"
+versions.rx_android = "2.0.1"
+
+versions.picasso = "2.71828"
+
+versions.glide = "4.9.0"
+
+versions.retrofit = "2.6.1"
+versions.okhttp = "4.0.1"
+versions.coroutines_adapter = "0.9.2"
+
+versions.atsl_rules = "1.1.0"
+versions.atsl_runner = "1.1.0"
+
+versions.junit = "4.12"
+versions.junit_ext = "1.1.1"
+
+versions.espresso = "3.2.0"
+
+versions.support_test = "1.0.1"
+
+versions.mockito = "2.19.0"
+
+versions.mockk = "1.9"
+
+def build_versions = [:]
+build_versions.min_sdk = versions.min_sdk
+build_versions.target_sdk = versions.target_sdk
+build_versions.compile_sdk = versions.compile_sdk
+build_versions.build_tools = versions.build_tools
+ext.build_versions = build_versions
+
+def deps = [:]
+
+def android = [:]
+android.appcompat = "androidx.appcompat:appcompat:$versions.appcompat"
+android.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+android.coordinator_layout = "androidx.coordinatorlayout:coordinatorlayout:$versions.coordinator_layout"
+android.grid_layout = "androidx.gridlayout:gridlayout:$versions.grid_layout"
+android.recyclerview = "androidx.recyclerview:recyclerview:$versions.support"
+android.cardview = "androidx.cardview:cardview:$versions.card_view"
+android.design = "com.google.android.material:material:$versions.material"
+android.preference = "androidx.preference:preference:$versions.preferences"
+deps.android = android
+
+def lifecycle = [:]
+lifecycle.lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+//lifecycle.lifecycle_extensions = "android.arch.lifecycle:extensions:$versions.lifecycle_extensions"
+lifecycle.lifecycle_viewmodel = "androidx.lifecycle:lifecycle-viewmodel:$versions.lifecycle"
+lifecycle.lifecycle_viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+lifecycle.lifecycle_annotations = "android.arch.lifecycle:compiler:$versions.lifecycle"
+lifecycle.lifecycle_databinding = "androidx.databinding:databinding-compiler:$versions.databinding"
+deps.lifecycle = lifecycle
+
+def ktx = [:]
+ktx.core = "androidx.core:core-ktx:$versions.ktx"
+deps.ktx = ktx
+
+def test = [:]
+test.junit = "org.junit.jupiter:junit-jupiter-api:$versions.junit"
+test.jupiter_engine = "org.junit.jupiter:junit-jupiter-engine:$versions.junit"
+test.vintage_engine = "org.junit.vintage:junit-vintage-engine:$versions.junit"
+test.kotlin_junit = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
+test.mockk = "io.mockk:mockk:$versions.mockk"
+deps.test = test
+
+def kotlin = [:]
+kotlin.kotlin_jdk = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
+kotlin.kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+kotlin.coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutine_version"
+kotlin.coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutine_version"
+kotlin.reflect = "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin"
+deps.kotlin = kotlin
+
+def objectbox = [:]
+objectbox.objectbox_kotlin = "io.objectbox:objectbox-kotlin:$versions.objectbox"
+objectbox.objectbox_processor = "io.objectbox:objectbox-processor:$versions.objectbox"
+deps.objectbox = objectbox
+
+def jsoup = [:]
+jsoup.jsoup_core = "org.jsoup:jsoup:$versions.jsoup"
+deps.jsoup = jsoup
+
+def dagger = [:]
+dagger.runtime = "com.google.dagger:dagger:$versions.dagger"
+dagger.android = "com.google.dagger:dagger-android:$versions.dagger"
+dagger.android_support = "com.google.dagger:dagger-android-support:$versions.dagger"
+dagger.compiler = "com.google.dagger:dagger-compiler:$versions.dagger"
+dagger.android_support_compiler = "com.google.dagger:dagger-android-processor:$versions.dagger"
+deps.dagger = dagger
+
+def picasso = [:]
+picasso.runtime = "com.squareup.picasso:picasso:$versions.picasso"
+deps.picasso = picasso
+
+def glide = [:]
+glide.runtime = "com.github.bumptech.glide:glide:$versions.glide"
+glide.compiler = "com.github.bumptech.glide:compiler:$versions.glide"
+deps.glide = glide
+
+def retrofit = [:]
+retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+retrofit.adapter_rxjava2 = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+retrofit.mock = "com.squareup.retrofit2:retrofit-mock:$versions.retrofit"
+retrofit.coroutines_adapter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${versions.coroutines_adapter}"
+deps.retrofit = retrofit
+
+def okHttp = [:]
+okHttp.runtime = "com.squareup.okhttp3:okhttp:${versions.okhttp}"
+okHttp.okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
+deps.okHttp = okHttp
+
+def mockito = [:]
+mockito.core = "org.mockito:mockito-core:$versions.mockito"
+mockito.all = "org.mockito:mockito-all:$versions.mockito_all"
+mockito.android = "org.mockito:mockito-android:$versions.mockito_android"
+deps.mockito = mockito
+
+def espresso = [:]
+espresso.core = "androidx.test.espresso:espresso-core:$versions.espresso"
+espresso.contrib = "androidx.test.espresso:espresso-contrib:$versions.espresso"
+espresso.intents = "androidx.test.espresso:espresso-intents:$versions.espresso"
+deps.espresso = espresso
+
+def atsl = [:]
+atsl.runner = "androidx.test:runner:$versions.atsl_runner"
+atsl.rules = "androidx.test:rules:$versions.atsl_runner"
+deps.atsl = atsl
+
+def rxkotlin = [:]
+rxkotlin.core = "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin"
+deps.rxkotlin = rxkotlin
+
+def rxandroid = [:]
+rxandroid.rx_android = "io.reactivex.rxjava2:rxandroid:$versions.rx_android"
+deps.rxandroid = rxandroid
+
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+deps.kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+deps.objectbox_gradle_plugin = "io.objectbox:objectbox-gradle-plugin:$versions.objectbox"
+deps.junit = "junit:junit:$versions.junit"
+deps.junit_ext = "junit:junit:$versions.junit"
+deps.junit_ext = "androidx.test.ext:junit:$versions.junit_ext"
+ext.deps = deps
+
+static def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    //handler.maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    //handler.maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+}
+
+ext.addRepos = this.&addRepos
