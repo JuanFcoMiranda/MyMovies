@@ -26,6 +26,7 @@ import java.io.File
 
 @RunWith(MockitoJUnitRunner::class)
 class ExampleUnitTest {
+    private val apiKey = "b4a4fc89"
     lateinit var service: TheMovieDbService
 
     private val okHttpClient = HttpLoggingInterceptor().run {
@@ -70,7 +71,7 @@ class ExampleUnitTest {
     @Test
     fun `data is loaded from server`() {
         runBlocking {
-            val result = service.listMoviesAsync("batman", "").await()
+            val result = service.listMoviesAsync("batman", apiKey).await()
 
             assert(result.search?.size == 10)
         }
