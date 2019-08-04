@@ -74,6 +74,10 @@ dependencies {
     // okHttp
     implementation deps.okHttp.okhttp_logging_interceptor
 
+    // Tests
+    androidTestImplementation deps.atsl.runner
+    androidTestImplementation deps.atsl.rules
+
     // jUnit
     testImplementation deps.junit
     androidTestImplementation deps.junit_ext

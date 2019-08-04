@@ -1,32 +1,18 @@
 package com.jfma75.mymovies
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.jfma75.mymovies.data.entities.Movie
 import com.jfma75.mymovies.data.entities.MyObjectBox
-import com.jfma75.mymovies.data.mappers.toDomain
 import com.jfma75.mymovies.data.repositories.MoviesRepository
-import com.jfma75.mymovies.di.DaggerMyMoviesComponent
-import com.jfma75.mymovies.di.TestAppComponent
-import com.jfma75.mymovies.server.MoviesDbResult
-import com.jfma75.mymovies.server.TheMovieDb
 import com.jfma75.mymovies.server.TheMovieDbService
-import io.objectbox.Box
 import io.objectbox.BoxStore
 import io.objectbox.DebugFlags
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.After
-import org.junit.Test
-
 import org.junit.Before
+import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Matchers.any
-import org.mockito.Mock
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.verify
-import org.mockito.MockitoAnnotations
-import org.mockito.internal.verification.Calls
 import org.mockito.runners.MockitoJUnitRunner
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -40,7 +26,6 @@ import java.io.File
 
 @RunWith(MockitoJUnitRunner::class)
 class ExampleUnitTest {
-    lateinit var moviesBox: Box<Movie>
     lateinit var service: TheMovieDbService
 
     private val okHttpClient = HttpLoggingInterceptor().run {
