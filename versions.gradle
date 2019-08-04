@@ -72,6 +72,7 @@ versions.espresso = "3.2.0"
 versions.support_test = "1.0.1"
 
 versions.mockito = "2.19.0"
+versions.mockito_all = "2.0.2-beta"
 
 versions.mockk = "1.9"
 

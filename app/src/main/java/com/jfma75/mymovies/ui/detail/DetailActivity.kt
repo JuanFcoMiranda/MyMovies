@@ -18,7 +18,7 @@ class DetailActivity : BaseActivity(), ILogger {
 
     private lateinit var adapter: RatingsAdapter
     private lateinit var component: DetailActivityComponent
-    private val viewModel by lazy { getViewModel { component.detaiViewModel } }
+    private val viewModel by lazy { getViewModel { component.detailViewModel } }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

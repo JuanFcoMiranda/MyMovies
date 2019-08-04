@@ -16,7 +16,7 @@ class DetailActivityModule (private val movieId: String) {
     fun findMovieByIdProvider(moviesRepository: MoviesRepository) = GetMovieById(moviesRepository)
 }
 
-@Subcomponent(modules = [(DetailActivityModule::class)])
+@Subcomponent(modules = [DetailActivityModule::class])
 interface DetailActivityComponent {
-    val detaiViewModel: DetailViewModel
+    val detailViewModel: DetailViewModel
 }

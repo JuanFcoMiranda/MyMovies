@@ -78,6 +78,9 @@ dependencies {
     testImplementation deps.junit
     androidTestImplementation deps.junit_ext
 
+    // Mockito
+    testImplementation deps.mockito.all
+
     // Espresso
     androidTestImplementation deps.espresso.core
 }

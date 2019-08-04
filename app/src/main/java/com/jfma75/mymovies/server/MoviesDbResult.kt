@@ -2,7 +2,7 @@ package com.jfma75.mymovies.server
 
 import com.google.gson.annotations.SerializedName
 
-data class MoviesDbResult(
+open class MoviesDbResult(
     @SerializedName("Search")
     val search: List<Movie>?,
     @SerializedName("total_results")
