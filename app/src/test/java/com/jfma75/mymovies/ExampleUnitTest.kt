@@ -70,7 +70,7 @@ class ExampleUnitTest {
     @Test
     fun `data is loaded from server`() {
         runBlocking {
-            val result = service.listMoviesAsync("batman", "b4a4fc89").await()
+            val result = service.listMoviesAsync("batman", "").await()
 
             assert(result.search?.size == 10)
         }
