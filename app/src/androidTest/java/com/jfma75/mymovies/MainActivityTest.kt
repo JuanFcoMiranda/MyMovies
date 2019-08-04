@@ -1,18 +1,12 @@
 package com.jfma75.mymovies
 
-import android.view.View
-import android.view.ViewGroup
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import com.jfma75.mymovies.ui.main.MainActivity
-import org.hamcrest.Description
-import org.hamcrest.Matcher
-import org.hamcrest.Matchers.allOf
-import org.hamcrest.TypeSafeMatcher
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,80 +14,17 @@ import org.junit.runner.RunWith
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class MainActivityTest {
+    private val searchTerm = "batman"
 
-    @Rule
-    @JvmField
+    @get:Rule
     var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
     fun mainActivityTest() {
-        val appCompatImageView = onView(
-            allOf(
-                withId(R.id.search_button), withContentDescription("Search"),
-                childAtPosition(
-                    allOf(
-                        withId(R.id.search_bar),
-                        childAtPosition(
-                            withId(R.id.search_view),
-                            0
-                        )
-                    ),
-                    1
-                ),
-                isDisplayed()
-            )
-        )
-        appCompatImageView.perform(click())
+        onView(withId(R.id.search_button)).perform(click())
 
-        val searchAutoComplete = onView(
-            allOf(
-                withId(R.id.search_src_text),
-                childAtPosition(
-                    allOf(
-                        withId(R.id.search_plate),
-                        childAtPosition(
-                            withId(R.id.search_edit_frame),
-                            1
-                        )
-                    ),
-                    0
-                ),
-                isDisplayed()
-            )
-        )
-        searchAutoComplete.perform(replaceText("batman"), closeSoftKeyboard())
-
-        val searchAutoComplete2 = onView(
-            allOf(
-                withId(R.id.search_src_text), withText("batman"),
-                childAtPosition(
-                    allOf(
-                        withId(R.id.search_plate),
-                        childAtPosition(
-                            withId(R.id.search_edit_frame),
-                            1
-                        )
-                    ),
-                    0
-                ),
-                isDisplayed()
-            )
-        )
-        searchAutoComplete2.perform(pressImeActionButton())
-    }
-
-    private fun childAtPosition(parentMatcher: Matcher<View>, position: Int): Matcher<View> {
-        return object : TypeSafeMatcher<View>() {
-            override fun describeTo(description: Description) {
-                description.appendText("Child at position $position in parent ")
-                parentMatcher.describeTo(description)
-            }
-
-            public override fun matchesSafely(view: View): Boolean {
-                val parent = view.parent
-                return parent is ViewGroup && parentMatcher.matches(parent)
-                        && view == parent.getChildAt(position)
-            }
-        }
+        onView(withId(R.id.search_src_text))
+            .perform(replaceText(searchTerm), closeSoftKeyboard())
+            .perform(pressImeActionButton())
     }
 }

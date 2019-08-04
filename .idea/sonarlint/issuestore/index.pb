@@ -103,16 +103,12 @@ n
 >app/src/main/java/com/jfma75/mymovies/server/MoviesDbResult.kt,5/0/50613e1530456e31523584415ef03cf92edc91cc
 q
 Aapp/src/main/java/com/jfma75/mymovies/ui/detail/DetailActivity.kt,a/0/a0b9c90fd68dbecc1d86d5cce62c97057d2d5af1
-j
-:app/src/main/java/com/jfma75/mymovies/exception/Failure.kt,c/a/ca62a8f54f4acb1ddb1b1f33d829212eb4a29f5a
 u
 Eapp/src/main/java/com/jfma75/mymovies/ui/common/ConnectionLiveData.kt,6/3/63ed2c8ae8c76aacd8bbba5451c51d1153f5dbfa
 U
 %app/objectbox-models/default.json.bak,e/8/e86a0de7df8ae1be9d7976d78cd32c406a65ffd7
 G
 app/release/output.json,7/c/7cb8114e4eccc7221955a60c256fe2f6fd79480c
-w
-Gapp/src/androidTest/java/com/jfma75/mymovies/ExampleInstrumentedTest.kt,2/8/28ca5ea09c0d735648f6b5b34ec75ee6b8dde3a1
 z
 Japp/src/main/java/com/jfma75/mymovies/application/NotNullSingleValueVar.kt,b/b/bbf2de8e52e170365d3645875c1d5da5d175a71a
 w
@@ -174,3 +170,7 @@ s
 Capp/src/main/java/com/jfma75/mymovies/ui/detail/RatingViewHolder.kt,d/d/ddb73d63d25ec23918798f9b84114c2545acf5ca
 Y
 )app/src/main/res/layout/detail_layout.xml,f/4/f4009a5dcab595cf83e97f5699909c75dc10a141
+n
+>app/src/main/java/com/jfma75/mymovies/server/RatingParceler.kt,1/6/16165c04f0674b060ec0f9ba65eeb0ce0163b52d
+p
+@app/src/androidTest/java/com/jfma75/mymovies/MainActivityTest.kt,8/5/8562f2de5e25161c1239d915af04a9d8ab451488
