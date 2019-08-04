@@ -1,30 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="2dp"
+    app:cardCornerRadius="@dimen/span_8"
+    android:elevation="@dimen/span_8"
+    android:layout_margin="@dimen/span_2"
+    app:cardBackgroundColor="@color/colorPrimaryDark"
     android:foreground="?attr/selectableItemBackground">
 
-    <ImageView
-        android:id="@+id/movieCover"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        android:scaleType="centerCrop"
-        tools:src="@tools:sample/backgrounds/scenic" />
-
-    <TextView
-        android:id="@+id/movieTitle"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:background="@color/colorPrimaryDark"
-        android:padding="8dp"
-        android:lines="2"
-        android:minLines="2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
-        tools:text="@tools:sample/lorem" />
+        android:orientation="vertical"
+        android:padding="@dimen/span_4">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/movieCover"
+            android:layout_width="@dimen/span_144"
+            android:layout_height="@dimen/span_144"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/movieTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:lines="2"
+            android:minLines="2"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+            tools:text="@tools:sample/lorem" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
