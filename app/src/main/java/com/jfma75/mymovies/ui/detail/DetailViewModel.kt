@@ -6,7 +6,8 @@ import com.jfma75.mymovie.domain.Movie
 import com.jfma75.mymovies.ui.common.ScopedViewModel
 import com.jfma75.mymovies.usecases.GetMovieById
 import kotlinx.coroutines.launch
-class DetailViewModel(val imdbId: String, val getMovieById: GetMovieById) : ScopedViewModel() {
+
+class DetailViewModel(private val imdbId: String, private val getMovieById: GetMovieById) : ScopedViewModel() {
     class DetailUIModel(val movie: Movie)
 
     private val _model = MutableLiveData<DetailUIModel>()

@@ -1,15 +1,33 @@
 package com.jfma75.mymovies.ui.main
 
-import android.view.View
+import android.os.Build.VERSION.SDK_INT
+import android.os.Build.VERSION_CODES.P
 import androidx.recyclerview.widget.RecyclerView
+import coil.ImageLoader
+import coil.decode.GifDecoder
+import coil.decode.ImageDecoderDecoder
 import com.jfma75.mymovie.domain.Movie
-import com.jfma75.mymovies.extensions.loadUrl
-import kotlinx.android.synthetic.main.view_movie.view.*
+import com.jfma75.mymovies.R
+import com.jfma75.mymovies.databinding.ViewMovieBinding
+import com.jfma75.mymovies.extensions.load
 
-class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class MovieViewHolder(private val itemBinding: ViewMovieBinding) : RecyclerView.ViewHolder(itemBinding.root) {
     fun bind(movie: Movie) {
-        itemView.movieTitle.text = movie.title
-        if (movie.posterPath.isNotBlank())
-            itemView.movieCover.loadUrl(movie.posterPath)
+        itemBinding.movieTitle.text = movie.title
+        if (movie.posterPath.isNotBlank()) {
+            val imageLoader = ImageLoader(itemView.context) {
+                componentRegistry {
+                    if (SDK_INT >= P) {
+                        add(ImageDecoderDecoder())
+                    } else {
+                        add(GifDecoder())
+                    }
+                }
+            }
+            itemBinding.movieCover.load(movie.posterPath, imageLoader) {
+                crossfade(true)
+                placeholder(R.mipmap.loading)
+            }
+        }
     }
 }

@@ -1,17 +1,18 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'io.objectbox'
 
 android {
     compileSdkVersion build_versions.target_sdk
     buildToolsVersion build_versions.build_tools
+    ndkVersion "21.3.6528147"
 
     defaultConfig {
         applicationId "com.jfma75.mymovies"
         minSdkVersion 23
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -24,14 +25,20 @@ android {
         }
     }
 
+    buildFeatures {
+        viewBinding true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
-androidExtensions {
-    experimental = true
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -47,8 +54,10 @@ dependencies {
     implementation deps.android.constraint_layout
     implementation deps.android.design
 
-    implementation deps.lifecycle.lifecycle_extensions
-    implementation deps.lifecycle.lifecycle_viewmodel
+    // Lifecycle/LiveData
+    implementation deps.lifecycle.extensions
+    implementation deps.lifecycle.viewmodel
+    kapt deps.lifecycle.compiler
 
     // Coroutines
     implementation deps.kotlin.coroutines_core
@@ -63,8 +72,11 @@ dependencies {
     kapt deps.objectbox.objectbox_processor
 
     // Glide
-    implementation deps.glide.runtime
-    kapt deps.glide.compiler
+    /*implementation deps.glide.runtime
+    kapt deps.glide.compiler*/
+    // Coil
+    implementation deps.coil.core
+    implementation deps.coil.gif_ext
 
     // Retrofit
     implementation deps.retrofit.runtime
@@ -78,6 +90,14 @@ dependencies {
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.atsl.rules
 
+    // Tests for coroutines
+    testImplementation deps.test.coroutines
+    androidTestImplementation deps.test.coroutines
+
+    // Dagger Test
+    testImplementation deps.dagger.runtime
+    kaptTest deps.dagger.compiler
+
     // jUnit
     testImplementation deps.junit
     androidTestImplementation deps.junit_ext
@@ -87,4 +107,5 @@ dependencies {
 
     // Espresso
     androidTestImplementation deps.espresso.core
+    androidTestImplementation deps.espresso.contrib
 }

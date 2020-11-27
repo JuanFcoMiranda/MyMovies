@@ -3,57 +3,56 @@ package com.jfma75.mymovies.ui.main
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import com.jfma75.mymovies.R
+import com.jfma75.mymovies.databinding.ActivityMainBinding
 import com.jfma75.mymovies.di.MainActivityComponent
 import com.jfma75.mymovies.di.MainActivityModule
-import com.jfma75.mymovies.extensions.app
-import com.jfma75.mymovies.extensions.closeKeyboard
-import com.jfma75.mymovies.extensions.getViewModel
-import com.jfma75.mymovies.extensions.startActivity
-import com.jfma75.mymovies.ui.base.BaseActivity
+import com.jfma75.mymovies.extensions.*
 import com.jfma75.mymovies.ui.common.ConnectionLiveData
+import com.jfma75.mymovies.ui.common.ILogger
 import com.jfma75.mymovies.ui.detail.DetailActivity
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
 
-class MainActivity: BaseActivity() {
+class MainActivity: AppCompatActivity(), ILogger {
     lateinit var connectionLiveData: ConnectionLiveData
+
     private lateinit var component: MainActivityComponent
     private val viewModel: MainViewModel by lazy { getViewModel { component.mainViewModel } }
     private lateinit var adapter: MoviesAdapter
-
-    override val contentResource: Int
-        get() = R.layout.activity_main
+    private val viewBinding by viewBinding(ActivityMainBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(viewBinding.toolbar)
         component = app.component.plus(MainActivityModule())
 
+        setContentView(viewBinding.root)
+
         connectionLiveData = ConnectionLiveData(app)
-        connectionLiveData.observe(this, Observer(::enableSearch))
+        connectionLiveData.observe(this, { connected ->
+            viewBinding.contentView.searchView.isEnabled = connected != null && connected
+        })
 
         adapter = MoviesAdapter(viewModel::onMovieClicked)
-        recycler.adapter = adapter
+        viewBinding.contentView.recycler.adapter = adapter
 
         viewModel.model.observe(this, Observer(::updateUI))
-    }
-
-    private fun enableSearch(connected: Boolean?) {
-        search_view.isEnabled = connected != null && connected
+        /*viewModel.model.observe(this) { newValue ->
+            updateUI()
+        }*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu to use in the action bar
         menuInflater.inflate(R.menu.menu_main, menu)
-        search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        viewBinding.contentView.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 if (p0 != null && p0.isNotEmpty() && connectionLiveData.value != null && connectionLiveData.value!!) {
                     viewModel.onMovieSearchPerformed(p0)
-                    search_view.closeKeyboard()
+                    viewBinding.contentView.searchView.closeKeyboard()
                 }
                 return true
             }
@@ -71,7 +70,7 @@ class MainActivity: BaseActivity() {
     }
 
     private fun updateUI(model: MainViewModel.MainUIModel) {
-        progress.visibility =
+        viewBinding.contentView.progress.visibility =
             if (model is MainViewModel.MainUIModel.Loading) View.VISIBLE else View.GONE
         when (model) {
             is MainViewModel.MainUIModel.Content -> {

@@ -10,15 +10,19 @@
       "properties": [
         {
           "id": "1:5177905520696818009",
-          "name": "id"
+          "name": "id",
+          "type": 6,
+          "flags": 1
         },
         {
           "id": "2:395210194510360245",
-          "name": "source"
+          "name": "source",
+          "type": 9
         },
         {
           "id": "3:8216695004631476510",
-          "name": "value"
+          "name": "value",
+          "type": 9
         }
       ],
       "relations": []
@@ -30,41 +34,52 @@
       "properties": [
         {
           "id": "1:6519099517068903657",
-          "name": "id"
+          "name": "id",
+          "type": 6,
+          "flags": 1
         },
         {
           "id": "2:2772592586883159983",
-          "name": "title"
+          "name": "title",
+          "type": 9
         },
         {
           "id": "3:6551684843556299936",
-          "name": "posterPath"
+          "name": "posterPath",
+          "type": 9
         },
         {
           "id": "4:1839541841028256472",
-          "name": "director"
+          "name": "director",
+          "type": 9
         },
         {
           "id": "5:4433776000398879722",
-          "name": "duration"
+          "name": "duration",
+          "type": 9
         },
         {
           "id": "6:5808603432926524095",
-          "name": "year"
+          "name": "year",
+          "type": 5,
+          "flags": 4
         },
         {
           "id": "7:1569476426208839121",
-          "name": "imdbID"
+          "name": "imdbID",
+          "type": 9
         },
         {
           "id": "8:7996152132931428992",
-          "name": "plot"
+          "name": "plot",
+          "type": 9
         }
       ],
       "relations": [
         {
           "id": "1:298752694536982055",
-          "name": "ratings"
+          "name": "ratings",
+          "targetId": "1:8347782503357278686"
         }
       ]
     }
@@ -73,8 +88,8 @@
   "lastIndexId": "0:0",
   "lastRelationId": "1:298752694536982055",
   "lastSequenceId": "0:0",
-  "modelVersion": 4,
-  "modelVersionParserMinimum": 4,
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
   "retiredPropertyUids": [],

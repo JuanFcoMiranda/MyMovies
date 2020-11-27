@@ -1,13 +1,12 @@
 package com.jfma75.mymovies.ui.detail
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.jfma75.mymovie.domain.Rating
-import kotlinx.android.synthetic.main.rating_layout.view.*
+import com.jfma75.mymovies.databinding.RatingLayoutBinding
 
-class RatingViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class RatingViewHolder(private val itemBinding: RatingLayoutBinding) : RecyclerView.ViewHolder(itemBinding.root) {
     fun bind(rating: Rating) {
-        itemView.source.text = rating.source
-        itemView.value.text = rating.value
+        itemBinding.source.text = rating.source
+        itemBinding.value.text = rating.value
     }
 }

@@ -1,7 +1,7 @@
 package com.jfma75.mymovies.server
 
 import android.os.Parcel
-import kotlinx.android.parcel.Parceler
+import kotlinx.parcelize.Parceler
 
 object RatingParceler : Parceler<Rating> {
     override fun create(parcel: Parcel) =

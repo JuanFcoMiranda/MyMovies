@@ -1,20 +1,24 @@
 package com.jfma75.mymovies.ui.detail
 
+import android.os.Build
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import coil.ImageLoader
+import coil.decode.GifDecoder
+import coil.decode.ImageDecoderDecoder
 import com.jfma75.mymovies.R
+import com.jfma75.mymovies.databinding.DetailLayoutBinding
 import com.jfma75.mymovies.di.DetailActivityComponent
 import com.jfma75.mymovies.di.DetailActivityModule
 import com.jfma75.mymovies.extensions.app
 import com.jfma75.mymovies.extensions.getViewModel
-import com.jfma75.mymovies.extensions.loadUrl
-import com.jfma75.mymovies.ui.base.BaseActivity
+import com.jfma75.mymovies.extensions.load
+import com.jfma75.mymovies.extensions.viewBinding
 import com.jfma75.mymovies.ui.common.ILogger
-import kotlinx.android.synthetic.main.detail_layout.*
 
-class DetailActivity : BaseActivity(), ILogger {
-    override val contentResource: Int
-        get() = R.layout.detail_layout
+class DetailActivity : AppCompatActivity(), ILogger {
+    private val viewBinding by viewBinding(DetailLayoutBinding::inflate)
 
     private lateinit var adapter: RatingsAdapter
     private lateinit var component: DetailActivityComponent
@@ -22,22 +26,36 @@ class DetailActivity : BaseActivity(), ILogger {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(viewBinding.root)
 
-        component = app.component.plus(DetailActivityModule(intent.getStringExtra(MOVIE)))
+        component = app.component.plus(DetailActivityModule(intent.getStringExtra(MOVIE) ?: ""))
 
         viewModel.model.observe(this, Observer(::updateUI))
     }
 
     private fun updateUI(model: DetailViewModel.DetailUIModel) = with(model.movie) {
-        movieDetailToolbar.title = title
-        movieDetailSummary.text = plot
-        movieDetailImage.loadUrl(posterPath)
-        movieDirector.text = director
-        movieDuration.text = duration
+        viewBinding.movieDetailToolbar.title = title
+        viewBinding.movieDetailSummary.text = plot
+
+        val imageLoader = ImageLoader(this@DetailActivity) {
+            componentRegistry {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    add(ImageDecoderDecoder())
+                } else {
+                    add(GifDecoder())
+                }
+            }
+        }
+
+        viewBinding.movieDetailImage.load(posterPath, imageLoader) {
+            crossfade(true)
+            placeholder(R.mipmap.loading)
+        }
+        viewBinding.movieDirector.text = director
+        viewBinding.movieDuration.text = duration
         if (ratings != null) {
             adapter = RatingsAdapter()
-            recycler_ratings.adapter = adapter
-            //recycler_ratings.layoutManager = LinearLayoutManager(this@DetailActivity, RecyclerView.HORIZONTAL, false)
+            viewBinding.recyclerRatings.adapter = adapter
 
             adapter.ratings = this.ratings!!
             adapter.notifyDataSetChanged()

@@ -2,8 +2,8 @@ package com.jfma75.mymovies.server
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
-import kotlinx.android.parcel.TypeParceler
+import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.TypeParceler
 
 @Parcelize
 @TypeParceler<Rating, RatingParceler>

@@ -33,5 +33,4 @@
             android:parentActivityName=".ui.main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
-
 </manifest>

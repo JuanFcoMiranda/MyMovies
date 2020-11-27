@@ -174,3 +174,5 @@ n
 >app/src/main/java/com/jfma75/mymovies/server/RatingParceler.kt,1/6/16165c04f0674b060ec0f9ba65eeb0ce0163b52d
 p
 @app/src/androidTest/java/com/jfma75/mymovies/MainActivityTest.kt,8/5/8562f2de5e25161c1239d915af04a9d8ab451488
+~
+Napp/src/androidTest/java/com/jfma75/mymovies/RecyclerViewItemCountAssertion.kt,9/a/9a2cd9598cb08f73cbeb55956aae0bebe274ed60

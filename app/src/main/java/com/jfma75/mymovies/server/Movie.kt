@@ -2,8 +2,7 @@ package com.jfma75.mymovies.server
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
-import java.time.Year
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Movie(

@@ -19,7 +19,7 @@ class AppModule {
     @Provides
     @Singleton
     @Named("apiKey")
-    fun apiKeyProvider(app: Application): String = app.getString(R.string.api_key)
+    fun apiKeyProvider(app: Application) = app.getString(R.string.api_key)
 
     @Provides
     @Singleton
@@ -30,8 +30,4 @@ class AppModule {
 
     @Provides
     fun remoteDataSourceProvider(): RemoteDataSource = TheMovieDbDataSource()
-
-    @Provides
-    @Singleton
-    fun getConnectionData(app: Application): ConnectionLiveData = ConnectionLiveData(app)
 }

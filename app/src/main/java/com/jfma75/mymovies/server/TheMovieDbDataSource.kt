@@ -3,14 +3,15 @@ package com.jfma75.mymovies.server
 import com.jfma75.mymovie.domain.Movie
 import com.jfma75.mymovies.data.datasource.RemoteDataSource
 import com.jfma75.mymovies.data.mappers.toDomain
+import java.text.ParseException
 
 class TheMovieDbDataSource : RemoteDataSource {
     override suspend fun getMovies(searchTerm: String, apiKey: String): List<Movie>? {
-        try {
+        return try {
             val movies = TheMovieDb.service.listMoviesAsync(searchTerm, apiKey).await()
-            return movies.search?.map { it.toDomain() }
-        } catch (e: Exception){
-            return null
+            movies.search?.map { it.toDomain() }
+        } catch (e: ParseException) {
+            null
         }
     }
 

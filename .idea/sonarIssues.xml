@@ -73,6 +73,266 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/java/com/jfma75/instagramfirebase/ui/camera/CameraFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/java/com/jfma75/instagramfirebase/ui/camera/CameraViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/java/com/jfma75/instagramfirebase/ui/camera/ProfileFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/java/com/jfma75/instagramfirebase/ui/home/HomeFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/java/com/jfma75/instagramfirebase/ui/likes/LikesFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/java/com/jfma75/instagramfirebase/ui/main/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/java/com/jfma75/instagramfirebase/ui/profile/ProfileFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/java/com/jfma75/instagramfirebase/ui/search/SearchFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/java/com/jfma75/instagramfirebase/ui/search/SearchViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/java/com/jfma75/instagramfirebase/ui/share/ShareFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/java/com/jfma75/instagramfirebase/ui/signin/SignInViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/res/drawable/ic_logo.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/res/drawable/ic_rounded_logo.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/res/layout/activity_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/res/layout/fragment_camera.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/res/layout/fragment_likes.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/res/layout/fragment_profile.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/res/layout/fragment_share.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/res/navigation/mobile_navigation.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/res/values/dimens.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/app/src/main/res/values/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/domain/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/domain/src/main/java/com/jfma75/instagramfirebase/domain/Usuario.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/gradle.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Instagram/versions.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/proguard-rules.pro">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/java/com/jfma75/instagramfirebase/application/DelegatesExt.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/java/com/jfma75/instagramfirebase/application/MyMoviesApp.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/java/com/jfma75/instagramfirebase/application/NotNullSingleValueVar.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/java/com/jfma75/instagramfirebase/common/ILogger.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/java/com/jfma75/instagramfirebase/extensions/ContextExtensions.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/java/com/jfma75/instagramfirebase/ui/base/BaseActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/java/com/jfma75/instagramfirebase/ui/extensions/ActivityExtensions.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/java/com/jfma75/instagramfirebase/ui/extensions/ContextExtensions.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/java/com/jfma75/instagramfirebase/ui/main/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/res/drawable/white_grey_bottom_border.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/res/drawable/white_grey_top_border.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/res/layout/activity_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/res/layout/bottom_navigationlayout.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/res/layout/center_viewpagerlayout.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/res/layout/top_tablayout.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/res/menu/bottom_navigation.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/res/values/colors.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/app/src/main/res/values/dimens.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/gradle.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../InstagramFirebase/versions.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build.gradle">
           <value>
             <set />
@@ -84,6 +344,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/androidTest/java/com/jfma75/mymovies/MainActivityTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/androidTest/java/com/jfma75/mymovies/RecyclerViewItemCountAssertion.kt">
           <value>
             <set />
           </value>
@@ -468,6 +733,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/usecases/src/main/java/com/jfma75/mymovies/usecases/GetMovieById.kt">
           <value>
             <set />
@@ -494,6 +764,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/versions.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../MyMovies/MyMovies/app/src/androidTest/java/com/jfma75/mymovies/MainActivityTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/a.dummy">
           <value>
             <set />
           </value>
